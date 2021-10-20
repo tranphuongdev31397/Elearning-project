@@ -1,0 +1,28 @@
+.login__button {
+  background-color: #a435f0;
+  color: white;
+  border: solid 1px white;
+  width: 100%;
+  &:hover {
+    background-color: #621a92;
+    transition: 0.2s all;
+  }
+}
+.input__control {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  border: black 1px solid;
+  padding: 8px;
+  margin-top: 20px;
+
+  span {
+    margin-right: 5px;
+  }
+}
+.login__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
