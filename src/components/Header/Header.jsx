@@ -1,5 +1,5 @@
 import React from "react";
-import NavAuth from "../NavAuth/NavAuth";
+import NavAuth from "./NavAuth/NavAuth";
 import "./Header.scss";
 import NavSearch from "./NavSearch/NavSearch";
 export default function Header() {

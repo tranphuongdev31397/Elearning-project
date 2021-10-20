@@ -7,7 +7,7 @@ export default function NavSearch() {
       <button type="submit" className="icon mr-2">
         <SearchIcon className="h-5 w-5 text-blue-500" />
       </button>
-      <input type="text" className="border-none bg-gray-100 outline-none" placeholder="Search for anything..." />
+      <input type="text" className="border-none w-100 bg-gray-100 outline-none" placeholder="Search for anything..." />
       </div>
     </form>
   );
