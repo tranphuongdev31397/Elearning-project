@@ -12,7 +12,10 @@ export default function NavAuthNotLogin() {
       <Link className="linkrouter__config" to="/login">
         <Button styleBtn={btnLogin}>Login</Button>
       </Link>
+
       <Button styleBtn={btnSignUp}>Sign up</Button>
+
+
     </div>
   );
 }

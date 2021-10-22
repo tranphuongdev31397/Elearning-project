@@ -1,9 +1,17 @@
 import React from 'react'
+import Carousel from './Carousel/Carousel'
+import Courses from './Courses/Courses'
+import PopularCourses from './PopularCourses/PopularCourses'
+
+import CategoryCourses from './CategoryCourses/CategoryCourses'
 
 export default function HomePage() {
     return (
         <div>
-            HomePage
+            <Carousel />
+            <Courses />
+            <PopularCourses/>
+            <CategoryCourses/>
         </div>
     )
 }
