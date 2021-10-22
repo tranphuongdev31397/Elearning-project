@@ -6,9 +6,6 @@ export default function Carousel() {
             <section className="cover">
                 <div
                     className="cover__content"
-                    style={{
-                        backgroundImage: "",
-                    }}
                 >
                     <h1>Get there. From here.</h1>
                     <p>
