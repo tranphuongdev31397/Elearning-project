@@ -11,7 +11,7 @@ const authReducer = (state = initialState, { type, payload }) => {
     //LOGIN
 
     case LOGIN_REQUEST:
-      return { ...state, loading: true };
+      return { ...state, loading: true, err: null };
     case LOGIN_SUCCESS:
       //payload.data is data of currentUser
       return { ...state, loading: false, currentUser: payload.data, err: null };

@@ -1,6 +1,7 @@
 import Login from "containers/Auth/Login/Login";
+import SignUp from "containers/Auth/SignUp/SignUp";
 import HomePage from "containers/home-module/HomePage/HomePage";
-import SignUp from "containers/SignUp/SignUp";
+
 
 export const clientRoutes = [
   {
