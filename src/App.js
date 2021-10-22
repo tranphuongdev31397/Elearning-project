@@ -1,7 +1,8 @@
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import Header from './components/Header/Header'
+import Header from "./components/Header/Header";
 import { clientRoutes } from "./routes";
 import "./App.scss";
+import Footer from "components/Footer/Footer";
 
 function App() {
   const renderClientLayout = (routes) => {
@@ -21,8 +22,9 @@ function App() {
   return (
     <>
       <Router>
-        <Header/>
+        <Header />
         <Switch>{renderClientLayout(clientRoutes)}</Switch>
+        <Footer />
       </Router>
     </>
   );
