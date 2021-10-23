@@ -8,6 +8,7 @@ import "bootstrap/dist/js/bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./store";
+import { createStore } from "redux";
 import { Provider } from "react-redux";
 ReactDOM.render(
   <React.StrictMode>

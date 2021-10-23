@@ -1,0 +1,33 @@
+// .categories {
+//   width: 90%;
+//   margin: 32px auto 0;
+// }
+.categories {
+  @apply mx-auto mb-0 mt-8;
+  width: 90%;
+}
+
+.categories .categories__content h2 {
+  font-size: 24px;
+}
+
+.categories .categories__content .categories__items {
+  @apply border-solid border text-lg mb-5 py-10 mt-6 gap-y-2;
+  border-color: rgba(20, 23, 28, 0.1);
+  box-shadow: 9px 9px 11.6px -5px rgba(0, 0, 0, 0.047),
+    5px 12px 20px -10px rgba(0, 0, 0, 0.23);
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+
+.categories .categories__content .categories__items:hover {
+  transform: translateY(-18px);
+  transition: all 0.5s;
+  box-shadow: 9px 9px 11.6px -5px rgba(0, 0, 0, 0.047),
+    5px 12px 20px -10px rgba(0, 0, 0, 0.23);
+  border-radius: 5px;
+}
+
+.categories .categories__content .categories__group-items {
+  @apply grid  py-3 xl:grid-cols-3 xl:gap-x-14 md:grid-cols-2 md:gap-x-8 2xl:grid-cols-6 2xl:gap-x-4 2xl:gap-x-14 sm:grid-cols-6;
+}

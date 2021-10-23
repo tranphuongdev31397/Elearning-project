@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { styled, Box } from '@mui/system';
 import ModalUnstyled from '@mui/core/ModalUnstyled';
-import {CheckIcon} from "@heroicons/react/solid"
+import { CheckIcon } from "@heroicons/react/solid"
 const StyledModal = styled(ModalUnstyled)`
   position: fixed;
   z-index: 1300;
@@ -50,11 +50,11 @@ export default function ModalUnstyledDemo() {
         open={open}
         onClose={handleClose}
         BackdropComponent={Backdrop}
-        
+
       >
         <Box sx={style}>
           <h2 id="unstyled-modal-title" className="text-center text-green-500">Success</h2>
-          <span id="unstyled-modal-description" className="text-center w-10"><CheckIcon  className="text-green-500 mx-auto w-20"/></span>
+          <span id="unstyled-modal-description" className="text-center w-10"><CheckIcon className="text-green-500 mx-auto w-20" /></span>
         </Box>
       </StyledModal>
     </div>
