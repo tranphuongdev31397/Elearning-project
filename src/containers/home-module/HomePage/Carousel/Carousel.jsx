@@ -4,12 +4,11 @@ export default function Carousel() {
     return (
         <>
             <section className="cover">
-                <div
-                    className="cover__content"
-                >
+                <div className="cover__content">
                     <h1>Get there. From here.</h1>
                     <p>
-                        Welcome to the place where success begins. Log in for savings. Ends soon.
+                        Welcome to the place where success begins. Log in for savings. Ends
+                        soon.
                     </p>
                     <form className="cover__form">
                         <div className="input-group">
