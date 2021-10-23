@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
+import './CategoryCourses.scss'
+export default function CategoryCourses(props) {
 
-export default function CategoryCourses() {
     return (
         <div>
             CategoryCourses

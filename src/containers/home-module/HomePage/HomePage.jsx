@@ -2,7 +2,6 @@ import React from 'react'
 import Carousel from './Carousel/Carousel'
 import Courses from './Courses/Courses'
 import PopularCourses from './PopularCourses/PopularCourses'
-
 import CategoryCourses from './CategoryCourses/CategoryCourses'
 
 export default function HomePage() {
@@ -10,8 +9,8 @@ export default function HomePage() {
         <div>
             <Carousel />
             <Courses />
-            <PopularCourses/>
-            <CategoryCourses/>
+            <PopularCourses />
+            <CategoryCourses />
         </div>
     )
 }
