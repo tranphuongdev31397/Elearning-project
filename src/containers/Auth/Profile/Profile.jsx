@@ -43,10 +43,10 @@ export default function Profile(props) {
             </ul>
           </div>
         </div>
-        <div className="col-span-3 grid grid-rows-3">
-          <div className="row-span-1 profile__title font-semibold flex items-center">
+        <div className="col-span-3 grid grid-rows-4">
+          <h3 className="row-span-1 profile__title font-semibold flex items-center">
             {activeTitle}
-          </div>
+          </h3>
           <div className="row-span-3 profile__info">
             {props.children}
           </div>

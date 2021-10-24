@@ -1,4 +1,9 @@
-import { Route, BrowserRouter as Router, Switch, withRouter } from "react-router-dom";
+import {
+  Route,
+  BrowserRouter as Router,
+  Switch,
+
+} from "react-router-dom";
 import Header from "./components/Header/Header";
 import { clientRoutes } from "./routes";
 import "./App.scss";
@@ -21,26 +26,14 @@ function App(props) {
   const renderAdminLayout = () => {};
   return (
     <>
-      
+      <Router>
         <Header />
         <Switch>{renderClientLayout(clientRoutes)}</Switch>
         <Footer />
-     
+      </Router>
     </>
   );
 }
 
 
-
-const AppWithRouter = withRouter(App);
-
-
-const AppContainer = () => {
-  return (
-    <Router>
-      <AppWithRouter />
-    </Router>
-  );
-};
-
-export default AppContainer;
+export default App;

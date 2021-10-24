@@ -3,14 +3,15 @@ import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { useDispatch, useSelector } from "react-redux";
 import { actLogout } from "containers/Auth/module/actions";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function NavAuthLogged(props) {
-  console.log(props.history);
+ const  NavAuthLogged = withRouter(props => {
+  const history = props.history
   const currentUser = useSelector((state) => state.authReducer.currentUser);
   const dispatch = useDispatch();
   return (
@@ -57,8 +58,8 @@ export default function NavAuthLogged(props) {
                     "block w-full text-left px-4 py-2 text-sm"
                   )}
                   onClick={() => {
-                  
                     dispatch(actLogout());
+                    history.push('/')
                   }}
                 >
                   Sign out
@@ -70,4 +71,5 @@ export default function NavAuthLogged(props) {
       </Transition>
     </Menu>
   );
-}
+})
+export default NavAuthLogged
