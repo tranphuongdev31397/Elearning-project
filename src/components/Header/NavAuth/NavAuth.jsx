@@ -4,7 +4,8 @@ import NavAuthLogged from "./NavAuthLogged/NavAuthLogged";
 import NavAuthNotLogin from "./NavAuthNotLogin/NavAuthNotLogin";
 import NavAuthStore from "./NavAuthStore/NavAuthStore";
 
-export default function NavAuth() {
+export default function NavAuth(props) {
+  console.log(props)
   const { currentUser } = useSelector((state) => state.authReducer);
 
   return (

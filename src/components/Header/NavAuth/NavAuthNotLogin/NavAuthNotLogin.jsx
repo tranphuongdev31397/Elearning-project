@@ -3,8 +3,8 @@ import Button from "../../../Button/Button";
 import { Link } from "react-router-dom";
 import "./NavAuthNotLogin.scss";
 export default function NavAuthNotLogin() {
-  const btnLogin = "btn__login";
-  const btnSignUp = "btn__signup";
+  const btnLogin = "btn__login w-100";
+  const btnSignUp = "btn__signup w-100";
 
   return (
     <div className="grid grid-cols-2 gap-2">

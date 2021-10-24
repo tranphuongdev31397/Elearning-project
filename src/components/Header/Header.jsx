@@ -2,7 +2,7 @@ import React from "react";
 import NavAuth from "./NavAuth/NavAuth";
 import "./Header.scss";
 import NavSearch from "./NavSearch/NavSearch";
-export default function Header() {
+export default function Header(props) {
   return (
     <nav className="navbar__container">
       <div className="navbav__box grid grid-cols-10 p-3 shadow-md mx-auto gap-2">

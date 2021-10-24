@@ -13,7 +13,7 @@ export const callApi = (
     data,
     headers: {
       TokenCybersoft: `${CYBERSOFT_TOKEN}`,
-      Authorization: `${token}`,
+      Authorization: `Bearer ${token}`,
     },
   });
 };
