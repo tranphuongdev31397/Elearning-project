@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
-import App from "./App";
+import AppContainer from "./App";
 import "jquery/dist/jquery";
 import "popper.js/dist/umd/popper";
 import "bootstrap/dist/js/bootstrap";
@@ -14,7 +14,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <App />
+        <AppContainer />
       </PersistGate>
     </Provider>
   </React.StrictMode>,
