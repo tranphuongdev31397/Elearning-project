@@ -3,20 +3,23 @@ import { useSelector } from "react-redux";
 import { UserIcon } from "@heroicons/react/solid";
 import { useState } from "react";
 import { useCallback } from "react";
-import { Link } from "react-router-dom";
-import './Profile.scss'
+import { Link, NavLink } from "react-router-dom";
+import "./Profile.scss";
 
 export default function Profile(props) {
   const currentUser = useSelector((state) => state.authReducer.currentUser);
   const [activeTitle, setactiveTitle] = useState("Thông tin tài khoản");
-
+  let isActive = "";
   const handleActive = useCallback(
     (e) => {
-      console.log(e)
-      setactiveTitle(e.target.innerText);
+      console.log(e);
+      if (e.target.innerText !== "" && e.target.innerHTML !== "") {
+        setactiveTitle(e.target.innerText);
+      }
     },
     [activeTitle]
   );
+
   return (
     <div className="p-10 profile__container">
       <div className="grid grid-cols-4 gap-4 profile__table">
@@ -34,11 +37,27 @@ export default function Profile(props) {
           </div>
           <div className="profile__link">
             <ul className="list__config profileActive">
-              <li className="">
-                <Link to="/profile/userinfo" onClick={handleActive} className="p-2 isActive inline-flex items-center justify-start w-100 z-10">
-                    <UserIcon className="w-5 mr-2 inline-block" />
-                    <span>Thông tin tài khoản</span>
-                </Link>
+              <li>
+                <NavLink
+                  to="/profile/userinfo"
+                  exact={true}
+                  className="p-2 inline-flex items-center justify-start w-100 z-10"
+                  activeClassName="isActive"
+                >
+                  <UserIcon className="w-5 mr-2 inline-block" disabled />
+                  <span>Thông tin tài khoản</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/profile/"
+                  exact={true}
+                  className="p-2 inline-flex items-center justify-start w-100 z-10"
+                  activeClassName="isActive"
+                >
+                  <UserIcon className="w-5 mr-2 inline-block" />
+                  <span>Thông tin tài khoản</span>
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -47,9 +66,7 @@ export default function Profile(props) {
           <h3 className="row-span-1 profile__title font-semibold flex items-center">
             {activeTitle}
           </h3>
-          <div className="row-span-3 profile__info">
-            {props.children}
-          </div>
+          <div className="row-span-3 profile__info">{props.children}</div>
         </div>
       </div>
     </div>

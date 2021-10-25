@@ -24,14 +24,14 @@ export const clientRoutes = [
     isPrivate: false,
   },
   {
-    path: "/profile",
-    component: Profile,
+    path: "/profile/userinfo",
+    component: UserInfo,
     exact: true,
     isPrivate: false,
   },
   {
-    path: "/profile/userinfo",
-    component: UserInfo,
+    path: "/profile",
+    component: Profile,
     exact: true,
     isPrivate: false,
   },

@@ -10,13 +10,13 @@ import * as yup from "yup";
 export default function UserInfo() {
   const currentUser = useSelector((state) => state.authReducer.currentUser);
   const { userInfo, loading } = useSelector((state) => state.userInfoReducer);
-  
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(actFetchUserInfo(currentUser.accessToken));
   }, []);
   const handleSubmit = (values) => {
-    console.log(values)
+    console.log(values);
     dispatch(actEditProfile(currentUser.accessToken, values));
   };
   if (loading) return <div>Loading</div>;

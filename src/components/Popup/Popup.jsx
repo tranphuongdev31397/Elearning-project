@@ -41,7 +41,7 @@ export default function ModalUnstyledDemo() {
 
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
+      <button type="button" className="d-none" onClick={handleOpen}>
         Open modal
       </button>
       <StyledModal
