@@ -2,103 +2,42 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-.cover {
-  //   background-image: url("../../../../public/imgs/cover.jpg");
-  background-image: url("./cover.jpg");
+  background-image: url("https://img-c.udemycdn.com/notices/web_banner/image_udlite/10013898-4c44-4f6c-879e-68d0e93a1f4d.jpg");
+  // background-image: url("./cover.jpg");
   height: 500px;
   position: relative;
-}
 
-.cover .cover__content {
-  position: absolute;
-  top: 50%;
-  left: 12%;
-  transform: translateY(-50%);
-  max-width: 500px;
-}
+  .cover__content {
+    @apply py-12 px-9 text-black text-justify;
+    transform: translateY(-50%);
+    box-shadow: 9px 9px 11.6px -5px rgba(0, 0, 0, 0.047),
+      5px 12px 20px -10px rgba(0, 0, 0, 0.23);
 
-.cover .cover__content h1 {
-  color: #fff;
-  font-size: 40px;
-  font-weight: 600;
-}
-
-.cover .cover__content p {
-  color: #fff;
-  font-size: 18px;
-  font-weight: normal;
-}
-
-.cover .cover__content .cover__form .input-group {
-  background-color: #fff;
-}
-
-.cover .cover__content .cover__form .input-group .form-control {
-  background-color: transparent;
-  border-color: transparent;
-  border-radius: 0;
-  box-shadow: none;
-  transition: none;
-  color: #505763;
+    position: absolute;
+    left: 5%;
+    top: 30%;
+    background: #fff;
+    max-width: 380px;
+    border-radius: 0px;
+    h1 {
+      font-size: 30px;
+      font-weight: 600;
+    }
+    p {
+      font-size: 15px;
+      font-weight: normal;
+    }
+    .cover__form {
+      .input-group {
+        background-color: #fff;
+        border: 1px solid black;
+      }
+    }
+  }
 }
 
 .cover .cover__content .cover__form .input-group .form-control::placeholder {
   color: #505763;
-}
-
-.cover .cover__content .cover__form .input-group .form-control:focus {
-  background-color: #fff;
-  border-top-color: #fff;
-  border-left-color: #fff;
-  border-bottom-color: #fff;
-}
-
-.cover
-  .cover__content
-  .cover__form
-  .input-group
-  .form-control:focus
-  + .input-group-append
-  .input-group-text {
-  background-color: #fff;
-  border-top-color: #fff;
-  border-right-color: #fff;
-  border-bottom-color: #fff;
-  color: #ec5252;
-}
-
-.cover
-  .cover__content
-  .cover__form
-  .input-group
-  .form-control:focus
-  + .input-group-append
-  .input-group-text:hover {
-  color: #fff;
-  background-color: #ec5252;
-}
-
-.cover
-  .cover__content
-  .cover__form
-  .input-group
-  .input-group-append
-  .input-group-text {
-  background-color: transparent;
-  border-color: transparent;
-  border-radius: 0;
-  color: #ec5252;
-}
-
-.cover
-  .cover__content
-  .cover__form
-  .input-group
-  .input-group-append
-  .input-group-text:hover {
-  color: #fff;
-  background-color: #ec5252;
 }
 
 @media screen and (max-width: 576px) {
