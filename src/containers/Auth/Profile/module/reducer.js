@@ -22,12 +22,16 @@ const userInfoReducer = (state = initialState, { type, payload }) => {
     case FETCH_USER_INFO_FAIL:
       return { ...state, loading: false, error: payload };
 
-    // case EDIT_PROFILE_REQUEST:
-    //   return { ...state, loading: true, error: null };
-    // case EDIT_PROFILE_SUCCESS:
-    //   return { ...state, userInfo: payload, loading: false, error: null };
-    // case EDIT_PROFILE_FAIL:
-    //   return { ...state, loading: false, error: payload };
+    case EDIT_PROFILE_REQUEST:
+      return { ...state, loading: true, error: null };
+    case EDIT_PROFILE_SUCCESS:
+      const userInfoUpdate = { ...payload };
+
+      userInfoUpdate.soDT = userInfoUpdate.soDt;
+
+      return { ...state, userInfo: userInfoUpdate, loading: false, error: null };
+    case EDIT_PROFILE_FAIL:
+      return { ...state, loading: false, error: payload };
     default:
       return state;
   }

@@ -18,7 +18,7 @@ const SignupSchema = yup.object().shape({
     .required("(*) Họ tên không được để trống")
     .matches(
       /[^a-z0-9A-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]/u,
-      "(*) Họ tên khôn đúng định dạng"
+      "(*) Họ tên không đúng định dạng"
     ),
   email: yup
     .string()

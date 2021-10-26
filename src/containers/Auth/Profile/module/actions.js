@@ -5,7 +5,6 @@ import {
   FETCH_USER_INFO_SUCCESS,
   FETCH_USER_INFO_FAIL,
   EDIT_PROFILE_REQUEST,
-
   EDIT_PROFILE_FAIL,
   EDIT_PROFILE_SUCCESS,
 } from "./types";
@@ -40,7 +39,6 @@ export const actFetchUserInfo = (accessToken) => {
 //Change user info
 const actEditProfileRequest = () => ({
   type: EDIT_PROFILE_REQUEST,
-  
 });
 const actEditProfileSuccess = (userInfo) => ({
   type: EDIT_PROFILE_SUCCESS,
@@ -53,17 +51,18 @@ const actEditProfileFail = (error) => ({
 
 export const actEditProfile = (accessToken, user) => {
   return (dispatch) => {
-    // dispatch(actEditProfileRequest());
+    dispatch(actEditProfileRequest());
     userApi
       .editProfileApi(accessToken, user)
       .then((res) => {
-        console.log(res)
-        // dispatch(actEditProfileSuccess(res.data));
-        render(<Popup />);
+        if (res.status === 200) {
+          dispatch(actEditProfileSuccess(res.data));
+          render(<Popup />);
+        }
       })
       .catch((error) => {
-        console.log(error)
-        // dispatch(actEditProfileFail(error));
+        console.log(error);
+        dispatch(actEditProfileFail(error));
       });
   };
 };
