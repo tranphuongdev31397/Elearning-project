@@ -3,6 +3,7 @@ import Profile from "containers/Auth/Profile/Profile";
 import SignUp from "containers/Auth/SignUp/SignUp";
 import HomePage from "containers/home-module/HomePage/HomePage";
 import UserInfo from "containers/Auth/Profile/UserInfo/UserInfo";
+import CourseDetail from "containers/home-module/HomePage/CourseDetail/CourseDetail";
 
 export const clientRoutes = [
   {
@@ -32,6 +33,12 @@ export const clientRoutes = [
   {
     path: "/profile",
     component: Profile,
+    exact: true,
+    isPrivate: false,
+  },
+  {
+    path: "/course-detail",
+    component: CourseDetail,
     exact: true,
     isPrivate: false,
   },

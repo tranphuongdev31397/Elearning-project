@@ -3,11 +3,11 @@ import { useSelector } from "react-redux";
 import { UserIcon } from "@heroicons/react/solid";
 import { useState } from "react";
 import { useCallback } from "react";
-import { Link, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import "./Profile.scss";
 
 export default function Profile(props) {
-  const currentUser = useSelector((state) => state.authReducer.currentUser);
+  const userInfo = useSelector((state) => state.userInfoReducer.userInfo)
   const [activeTitle, setactiveTitle] = useState("Thông tin tài khoản");
   let isActive = "";
   const handleActive = useCallback(
@@ -32,7 +32,7 @@ export default function Profile(props) {
               />
             </div>
             <div className="profile__name my-4">
-              <h5 className="text-center">{currentUser.hoTen}</h5>
+              <h5 className="text-center">{userInfo.hoTen}</h5>
             </div>
           </div>
           <div className="profile__link">
