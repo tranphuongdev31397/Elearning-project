@@ -13,9 +13,10 @@ const LoginSchema = yup.object().shape({
 });
 
 export default function Login(props) {
+  console.log(props)
   const history = props.history
   const dispatch = useDispatch();
-  const { err } = useSelector(
+  const { error } = useSelector(
     (state) => state.authReducer
   );
 
@@ -27,7 +28,7 @@ export default function Login(props) {
       <div className="mx-auto w-2/6 py-5">
         <h3 className="text-center">Log in to Your Udemy Account</h3>
         <hr />
-        {err ? <div className="alert alert-danger text-center">{err}</div> : ""}
+        {error ? <div className="alert alert-danger text-center">{error}</div> : ""}
         <Formik
           initialValues={{ taiKhoan: "", matKhau: "" }}
           validationSchema={LoginSchema}

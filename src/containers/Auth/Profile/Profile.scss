@@ -1,0 +1,10 @@
+.profileActive {
+  & a:active,
+  a:focus,
+  a:hover {
+    background-color: rgb(235, 235, 240);
+  }
+  .isActive {
+    background-color: rgb(235, 235, 240);
+  }
+}

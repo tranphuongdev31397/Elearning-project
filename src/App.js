@@ -1,10 +1,15 @@
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import {
+  Route,
+  BrowserRouter as Router,
+  Switch,
+
+} from "react-router-dom";
 import Header from "./components/Header/Header";
 import { clientRoutes } from "./routes";
 import "./App.scss";
 import Footer from "components/Footer/Footer";
 
-function App() {
+function App(props) {
   const renderClientLayout = (routes) => {
     return routes.map((route) => {
       const { exact, isPrivate, component, path } = route;
@@ -29,5 +34,6 @@ function App() {
     </>
   );
 }
+
 
 export default App;

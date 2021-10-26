@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actLogin } from "../module/actions";
 import { Formik, Field, Form, ErrorMessage } from "formik";
@@ -11,23 +11,23 @@ import { render } from "@testing-library/react";
 import { userApi } from "apis/userApi";
 
 const SignupSchema = yup.object().shape({
-    taiKhoan: yup.string().required("(*) Tài khoản không được để trống"),
-    matKhau: yup.string().required("(*) Mật khẩu không được để trống"),
-    hoTen: yup
-      .string()
-      .required("(*) Họ tên không được để trống")
-      .matches(
-        /[^a-z0-9A-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]/u,
-        "(*) Họ tên khôn đúng định dạng"
-      ),
-    email: yup
-      .string()
-      .required("(*) Email không được để trống")
-      .email("(*) Email không đúng định dạng, Vd: abc@xyz.com"),
-    soDT: yup
-      .string()
-      .required("(*) Số điện thoại không được để trống")
-      .matches(/(84|0[3|5|7|8|9])+([0-9]{8})\b/g, "(*) Số điện thoại không đúng, số điện thoại phải có 10 số và đúng mã vùng VN,"),
+  taiKhoan: yup.string().required("(*) Tài khoản không được để trống"),
+  matKhau: yup.string().required("(*) Mật khẩu không được để trống"),
+  hoTen: yup
+    .string()
+    .required("(*) Họ tên không được để trống")
+    .matches(
+      /[^a-z0-9A-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]/u,
+      "(*) Họ tên khôn đúng định dạng"
+    ),
+  email: yup
+    .string()
+    .required("(*) Email không được để trống")
+    .email("(*) Email không đúng định dạng, Vd: abc@xyz.com"),
+  soDT: yup
+    .string()
+    .required("(*) Số điện thoại không được để trống")
+    .matches(/(84|0[3|5|7|8|9])+([0-9]{8})\b/g, "(*) Số điện thoại không đúng, số điện thoại phải có 10 số và đúng mã vùng VN,"),
 });
 
 export default function SignUp(props) {
@@ -36,22 +36,22 @@ export default function SignUp(props) {
 
   const handleSubmit = (values) => {
     userApi.signupApi(values)
-    .then(res => {
-        if(res.status === 200){
-            seterr(null)
-            render(
-                <Popup />
-            )
+      .then(res => {
+        if (res.status === 200) {
+          seterr(null)
+          render(
+            <Popup />
+          )
         }
-    })
-    .catch(err => {
+      })
+      .catch(err => {
         err = 'Tài khoản hoặc email đã có,vui lòng kiểm tra lại'
         seterr(err)
-    })
+      })
   };
   return (
     <div className="container login__container">
-        
+
       <div className="mx-auto w-2/6 py-5">
         <h3 className="text-center">Sign up Your Udemy Account</h3>
         <hr />

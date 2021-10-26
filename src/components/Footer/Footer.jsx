@@ -41,7 +41,7 @@ export default function Footer() {
                                 </li>
                             </ul>
                         </div>
-                        <div className="col-md-3">
+                        <div className="col-md-3 ">
                             <div className="btn-group dropup text-md-right">
                                 <button type="button" className="btn button--dropup dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i className="fa fa-globe" />English

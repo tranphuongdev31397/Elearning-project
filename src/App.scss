@@ -5,3 +5,14 @@
     color: inherit;
   }
 }
+
+.list__config {
+  a {
+    color: black;
+  };
+
+ &:hover a {
+    text-decoration: none;
+    color:black
+  }
+}

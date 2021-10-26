@@ -39,6 +39,10 @@ footer .footer__top .btn-group .button--dropup {
 footer .footer__top .btn-group .button--dropup i {
   padding: 0 5px;
 }
+footer .footer__top .btn-group .button--dropup:hover {
+  background-color: #fff;
+  color: black;
+}
 
 footer .footer__top .btn-group .button--dropup::after {
   margin-left: 30%;
