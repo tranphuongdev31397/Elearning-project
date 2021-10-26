@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { actLogin } from "../module/actions";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { UserIcon, LockClosedIcon, PhoneIcon, MailIcon, UserCircleIcon } from "@heroicons/react/solid";
 import Button from "components/Button/Button";
 import { GROUP_ID } from "settings/apiConfig";
-import Popup from "components/Popup/Popup";
-import { render } from "@testing-library/react";
 import { userApi } from "apis/userApi";
+import { successAlert } from "components/Notification/SweetAlert";
 
 const SignupSchema = yup.object().shape({
   taiKhoan: yup.string().required("(*) Tài khoản không được để trống"),
@@ -39,9 +36,7 @@ export default function SignUp(props) {
       .then(res => {
         if (res.status === 200) {
           seterr(null)
-          render(
-            <Popup />
-          )
+          successAlert("Đăng kí thành công")
         }
       })
       .catch(err => {

@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import Swal from 'sweetalert2'
 import { userApi } from "apis/userApi";
 import {
   FETCH_USER_INFO_REQUEST,
@@ -8,7 +8,8 @@ import {
   EDIT_PROFILE_FAIL,
   EDIT_PROFILE_SUCCESS,
 } from "./types";
-import Popup from "components/Popup/Popup";
+
+
 //Get user info
 const actFetchUserInfoRequest = () => ({
   type: FETCH_USER_INFO_REQUEST,
@@ -28,7 +29,7 @@ export const actFetchUserInfo = (accessToken) => {
     userApi
       .fetchUserInfoApi(accessToken)
       .then((res) => {
-        dispatch(actFetchUserInfoSuccess(res.data));
+        dispatch(actFetchUserInfoSuccess(res.data))
       })
       .catch((error) => {
         dispatch(actFetchUserInfoFail(error));
@@ -51,18 +52,33 @@ const actEditProfileFail = (error) => ({
 
 export const actEditProfile = (accessToken, user) => {
   return (dispatch) => {
-    dispatch(actEditProfileRequest());
-    userApi
-      .editProfileApi(accessToken, user)
-      .then((res) => {
-        if (res.status === 200) {
-          dispatch(actEditProfileSuccess(res.data));
-          render(<Popup />);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        dispatch(actEditProfileFail(error));
-      });
+    Swal.fire({
+      title: 'Bạn muốn lưu thay đổi?',
+      icon: 'question',
+      showDenyButton: false,
+      showCancelButton: true,
+      confirmButtonText: 'Xác nhận',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        dispatch(actEditProfileRequest());
+        userApi
+          .editProfileApi(accessToken, user)
+          .then((res) => {
+            if (res.status === 200) {
+              dispatch(actEditProfileSuccess(res.data));
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            dispatch(actEditProfileFail(error));
+          });
+        Swal.fire('Lưu thay đổi thành công!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
+   
   };
 };
