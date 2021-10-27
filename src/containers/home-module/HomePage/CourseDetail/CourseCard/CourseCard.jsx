@@ -6,14 +6,15 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Button from 'components/Button/Button'
 
-export default function CourseCard() {
+export default function CourseCard(props) {
+  const hinhAnh = props.hinhAnh
   return (
     <div className="courseD__card absolute top-10 right-0">
       <Card sx={{ maxWidth: 345, width: 345 }}>
         <CardMedia
           component="img"
           height="140"
-          image="https://elearning0706.cybersoft.edu.vn/hinhanh/php_gp01.jpg"
+          image={hinhAnh}
           alt="green iguana"
         />
         <CardContent>

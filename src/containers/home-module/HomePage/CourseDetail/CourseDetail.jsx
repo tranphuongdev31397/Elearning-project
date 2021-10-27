@@ -1,21 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CourseCard from "./CourseCard/CourseCard";
+import CourseBreadcrumb from "./CourseBreadcrumb/CourseBreadcrumb";
+import Loader from "components/Loader";
+import { useParams } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { actFetchCourseDetail } from "./module/actions";
 
-export default function CourseDetail() {
+export default function CourseDetail(props) {
+  const { courseId } = useParams();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(actFetchCourseDetail(courseId));
+  }, []);
+  const { courseDetail, loading, error } = useSelector(
+    (state) => state.courseDetailReducer
+  );
+  const { tenKhoaHoc, luotXem, hinhAnh, nguoiTao, danhMucKhoaHoc, moTa } =
+    courseDetail;
+  console.log(loading);
+  if (loading === true) return <Loader />;
   return (
     <div className="courseD">
       <div className="courseD__container">
-        <div className="courseD__info bg-gray-900 text-white">
+        <div className="courseD__info bg-black text-white">
           <div className="top-container container relative">
             <div className="courseD__box  w-3/5 py-10">
-              <div className="courseD__category">Category</div>
+              <div className="courseD__category">
+                <CourseBreadcrumb danhMucKhoaHoc={danhMucKhoaHoc}/>
+              </div>
               <div className="courseD__textBox">
                 <div className="courseD__name">
-                  <h3>Lập trình hướng đối tượng</h3>
+                  <h3>{tenKhoaHoc}</h3>
                 </div>
                 <div className="course__text">
                   <div className="course__teacher">
-                    <h5>Giảng viên: Trần Phương</h5>
+                    <h5>Giảng viên: {nguoiTao.hoTen}</h5>
                     <p>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Magni dolore praesentium ratione labore necessitatibus
@@ -23,12 +42,12 @@ export default function CourseDetail() {
                     </p>
                   </div>
                   <div className="courseD__view">
-                    <span>Lượt xem: 100</span>
+                    <span>Lượt xem: {luotXem}</span>
                   </div>
                 </div>
               </div>
             </div>
-           <CourseCard />
+            <CourseCard hinhAnh={hinhAnh} />
           </div>
         </div>
         <div className="courseD__description">
@@ -39,15 +58,7 @@ export default function CourseDetail() {
                   <h5>Mô tả chi tiết</h5>
                 </div>
                 <div className="courseD__text">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Pariatur animi necessitatibus, amet dignissimos quibusdam
-                    inventore similique? Ut sequi, at tempora itaque tenetur
-                    quo? Ab fuga repudiandae dolor incidunt perspiciatis
-                    repellendus voluptate. Minus quia cumque, quasi ex neque
-                    animi dolore, explicabo incidunt ipsa ullam nostrum. Quia
-                    deleniti doloribus ullam nostrum culpa?
-                  </p>
+                  <p>{moTa}</p>
                 </div>
               </div>
             </div>

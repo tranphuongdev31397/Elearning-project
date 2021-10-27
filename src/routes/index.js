@@ -37,7 +37,7 @@ export const clientRoutes = [
     isPrivate: false,
   },
   {
-    path: "/course-detail",
+    path: "/course-detail/:courseId",
     component: CourseDetail,
     exact: true,
     isPrivate: false,

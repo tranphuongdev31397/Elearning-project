@@ -4,6 +4,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import authReducer from "containers/Auth/module/reducer";
 import userInfoReducer from "containers/Auth/Profile/module/reducer";
+import courseDetailReducer from "containers/home-module/HomePage/CourseDetail/module/reducer";
 import thunk from "redux-thunk";
 
 const persistConfig = {
@@ -19,6 +20,7 @@ const authPersistConfig = {
 const rootReducer = combineReducers({
   authReducer,
   userInfoReducer,
+  courseDetailReducer,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

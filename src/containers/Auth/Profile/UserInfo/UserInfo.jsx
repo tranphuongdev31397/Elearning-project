@@ -42,7 +42,7 @@ export default function UserInfo() {
     dispatch(actEditProfile(currentUser.accessToken, values));
   };
 
-  console.log(userInfo);
+
   if (loading) return <div>Loading</div>;
   return (
     <Profile>

@@ -5,13 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { actLogout } from "containers/Auth/module/actions";
 import { Link, withRouter } from "react-router-dom";
 
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
- const  NavAuthLogged = withRouter(props => {
-  const history = props.history
+const NavAuthLogged = withRouter((props) => {
+  const history = props.history;
   const currentUser = useSelector((state) => state.authReducer.currentUser);
   const dispatch = useDispatch();
   return (
@@ -39,7 +38,8 @@ function classNames(...classes) {
             <Menu.Item>
               {({ active }) => (
                 <Link
-                  to="./profile/userinfo"
+                  to="/profile/userinfo"
+                  exact={true}
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                     "block px-4 py-2 text-sm"
@@ -59,7 +59,7 @@ function classNames(...classes) {
                   )}
                   onClick={() => {
                     dispatch(actLogout());
-                    history.push('/')
+                    history.push("/");
                   }}
                 >
                   Sign out
@@ -71,5 +71,5 @@ function classNames(...classes) {
       </Transition>
     </Menu>
   );
-})
-export default NavAuthLogged
+});
+export default NavAuthLogged;
