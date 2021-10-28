@@ -8,7 +8,7 @@ import {
 } from "./types";
 
 const initialState = {
-  userInfo: [],
+  userInfo: null,
   loading: true,
   error: null,
 };
@@ -26,10 +26,15 @@ const userInfoReducer = (state = initialState, { type, payload }) => {
       return { ...state, loading: true, error: null };
     case EDIT_PROFILE_SUCCESS:
       const userInfoUpdate = { ...payload };
-
+      userInfoUpdate.chiTietKhoaHocGhiDanh =
+        state.userInfo.chiTietKhoaHocGhiDanh;
       userInfoUpdate.soDT = userInfoUpdate.soDt;
-
-      return { ...state, userInfo: userInfoUpdate, loading: false, error: null };
+      return {
+        ...state,
+        userInfo: userInfoUpdate,
+        loading: false,
+        error: null,
+      };
     case EDIT_PROFILE_FAIL:
       return { ...state, loading: false, error: payload };
     default:
