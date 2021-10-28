@@ -14,7 +14,7 @@ const NavAuthLogged = withRouter((props) => {
   const currentUser = useSelector((state) => state.authReducer.currentUser);
   const dispatch = useDispatch();
   return (
-    <Menu as="div" className="relative inline-block text-left w-100">
+    <Menu as="div" className="relative inline-block text-left nav__logged">
       <div>
         <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-2 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
           <span className="overflow-ellipsis whitespace-nowrap overflow-hidden w-100">
@@ -46,6 +46,24 @@ const NavAuthLogged = withRouter((props) => {
                   )}
                 >
                   Account settings
+                </Link>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <Link
+                  to="/admin/user-management"
+                  exact={true}
+                  className={classNames(
+                    currentUser.maLoaiNguoiDung !== "GV"
+                      ? "d-none"
+                      : active
+                      ? "bg-gray-100 text-gray-900"
+                      : "text-gray-700",
+                    "block px-4 py-2 text-sm"
+                  )}
+                >
+                  Trang quản trị
                 </Link>
               )}
             </Menu.Item>

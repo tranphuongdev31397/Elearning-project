@@ -4,6 +4,9 @@ import SignUp from "containers/Auth/SignUp/SignUp";
 import HomePage from "containers/home-module/HomePage/HomePage";
 import UserInfo from "containers/Auth/Profile/UserInfo/UserInfo";
 import CourseDetail from "containers/home-module/HomePage/CourseDetail/CourseDetail";
+import AdminPage from "containers/admin-module/AdminPage/AdminPage";
+import CourseManagement from "containers/admin-module/AdminPage/CourseManagement/CourseManagement";
+import UserManagement from "containers/admin-module/AdminPage/UserManagement/UserManagement";
 
 export const clientRoutes = [
   {
@@ -41,5 +44,26 @@ export const clientRoutes = [
     component: CourseDetail,
     exact: true,
     isPrivate: false,
+  },
+];
+
+export const adminRoutes = [
+  {
+    path: "/admin",
+    component: AdminPage,
+    exact: true,
+    isPrivate: true,
+  },
+  {
+    path: "/admin/course-management",
+    component: CourseManagement,
+    exact: true,
+    isPrivate: true,
+  },
+  {
+    path: "/admin/user-management",
+    component: UserManagement,
+    exact: true,
+    isPrivate: true,
   },
 ];
