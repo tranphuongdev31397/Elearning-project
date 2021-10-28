@@ -38,12 +38,11 @@ export default function UserInfo() {
     dispatch(actFetchUserInfo(currentUser.accessToken));
   }, []);
   const handleSubmit = (values) => {
-    console.log(values);
     dispatch(actEditProfile(currentUser.accessToken, values));
   };
 
 
-  if (loading) return <div>Loading</div>;
+  if (loading) return <div>" "</div>;
   return (
     <Profile>
       <div class="infoForm">

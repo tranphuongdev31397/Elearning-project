@@ -13,7 +13,7 @@ const LoginSchema = yup.object().shape({
 });
 
 export default function Login(props) {
-  console.log(props)
+
   const history = props.history
   const dispatch = useDispatch();
   const { error } = useSelector(
