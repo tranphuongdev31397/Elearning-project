@@ -1,20 +1,17 @@
-import {
-  Route,
-  BrowserRouter as Router,
-  Switch,
-
-} from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
-import { clientRoutes } from "./routes";
+import { adminRoutes, clientRoutes } from "./routes";
 import "./App.scss";
 import Footer from "components/Footer/Footer";
+import ClientLayout from "layouts/ClientLayout";
+import AdminLayout from "layouts/AdminLayout";
 
 function App(props) {
-  const renderClientLayout = (routes) => {
+  const renderClientLayout = (routes, Layout) => {
     return routes.map((route) => {
       const { exact, isPrivate, component, path } = route;
       return (
-        <Route
+        <Layout
           path={path}
           component={component}
           exact={exact}
@@ -23,17 +20,27 @@ function App(props) {
       );
     });
   };
-  const renderAdminLayout = () => {};
+  const renderAdminLayout = (routes, Layout) => {
+    return routes.map((route) => {
+      const { exact, isPrivate, component, path } = route;
+      return (
+        <Layout
+          path={path}
+          component={component}
+          exact={exact}
+          isPrivate={isPrivate}
+        />
+      );
+    });
+  };
   return (
     <>
       <Router>
-        <Header />
-        <Switch>{renderClientLayout(clientRoutes)}</Switch>
-        <Footer />
+        <Switch>{renderClientLayout(clientRoutes, ClientLayout)}</Switch>
+        <Switch>{renderAdminLayout(adminRoutes, AdminLayout)}</Switch>
       </Router>
     </>
   );
 }
-
 
 export default App;

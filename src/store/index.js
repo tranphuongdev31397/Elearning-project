@@ -6,6 +6,7 @@ import authReducer from "containers/Auth/module/reducer";
 import userInfoReducer from "containers/Auth/Profile/module/reducer";
 import courseDetailReducer from "containers/home-module/HomePage/CourseDetail/module/reducer";
 import cartReducer from 'components/Header/NavAuth/NavAuthStore/module/reducer'
+import userManagementReducer from "containers/admin-module/AdminPage/UserManagement/module/reducer";
 import thunk from "redux-thunk";
 
 const persistConfig = {
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   userInfoReducer,
   courseDetailReducer,
   cartReducer,
+  userManagementReducer,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

@@ -5,7 +5,9 @@ import { actEditProfile, actFetchUserInfo } from "../module/actions";
 import Button from "components/Button/Button";
 import "./UserInfo.scss";
 import { Formik, Field, Form, ErrorMessage } from "formik";
+
 import * as yup from "yup";
+import Loader from "components/Loader";
 
 export default function UserInfo() {
   const UserInfoSchema = yup.object().shape({
@@ -42,7 +44,7 @@ export default function UserInfo() {
   };
 
 
-  if (loading) return <div>" "</div>;
+  if (loading) return <Loader />;
   return (
     <Profile>
       <div class="infoForm">

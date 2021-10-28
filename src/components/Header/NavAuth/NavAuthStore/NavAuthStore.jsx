@@ -5,6 +5,7 @@ import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useSelector, useDispatch } from "react-redux";
 import { actFetchUserInfo } from "containers/Auth/Profile/module/actions";
+import LoaderIcon from "components/LoaderIcon";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -29,7 +30,7 @@ export default function CustomizedBadges() {
     }
   }, [currentUser]);
   if (currentUser) {
-    if(loading) return <div>Loading</div>
+    if(loading) return <LoaderIcon/>
     return (
       <IconButton aria-label="cart">
         <StyledBadge badgeContent={userInfo.chiTietKhoaHocGhiDanh.length} color="secondary">

@@ -1,3 +1,4 @@
+import { GROUP_ID } from "settings/apiConfig";
 import { callApi } from "../utils/callApi";
 
 export const userApi = {
@@ -23,4 +24,8 @@ export const userApi = {
       accessToken
     );
   },
+  //Admin module
+  fetchAllUserApi(){
+    return callApi(`QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${GROUP_ID}`)
+  }
 };
