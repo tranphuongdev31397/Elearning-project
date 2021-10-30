@@ -7,6 +7,7 @@ import CourseDetail from "containers/home-module/HomePage/CourseDetail/CourseDet
 import AdminPage from "containers/admin-module/AdminPage/AdminPage";
 import CourseManagement from "containers/admin-module/AdminPage/CourseManagement/CourseManagement";
 import UserManagement from "containers/admin-module/AdminPage/UserManagement/UserManagement";
+import Courses from "containers/home-module/HomePage/Courses/Courses";
 
 export const clientRoutes = [
   {
@@ -36,6 +37,12 @@ export const clientRoutes = [
   {
     path: "/profile",
     component: Profile,
+    exact: true,
+    isPrivate: false,
+  },
+  {
+    path: "/courses",
+    component: Courses,
     exact: true,
     isPrivate: false,
   },

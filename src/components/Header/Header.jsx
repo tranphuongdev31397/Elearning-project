@@ -2,6 +2,7 @@ import React from "react";
 import NavAuth from "./NavAuth/NavAuth";
 import "./Header.scss";
 import NavSearch from "./NavSearch/NavSearch";
+import { Link } from "react-router-dom";
 export default function Header(props) {
   return (
     <nav className="navbar__container">
@@ -21,7 +22,7 @@ export default function Header(props) {
             <li className="col-span-4 navbar__item">
               <NavSearch />
             </li>
-            <li className="navbar__item">Categories</li>
+            <Link to='/courses' className="navbar__item linkrouter__config">Courses</Link>
             <li className="navbar__item">Udemy Business</li>
             <li className="navbar__item">Teach on Udemy</li>
 
