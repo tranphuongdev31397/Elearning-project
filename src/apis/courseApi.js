@@ -1,8 +1,8 @@
 import { callApi } from "../utils/callApi";
 
 export const courseApi = {
-  getCatogoryCourses: () => {
-    return callApi(`QuanLyKhoaHoc/LayDanhMucKhoaHoc`, "GET");
+  fetchCatogoryCoursesApi: () => {
+    return callApi(`QuanLyKhoaHoc/LayDanhMucKhoaHoc`);
   },
   fetchCourseDetailApi: (courseId) => {
     return callApi(`QuanLyKhoaHoc/LayThongTinKhoaHoc?maKhoaHoc=${courseId}`)
